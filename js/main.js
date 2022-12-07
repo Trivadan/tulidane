@@ -1,29 +1,29 @@
-(function($) {
+(function ($) {
     "use strict";
 
-if ($.fn.classyNav) {
-    $('#roamingnav').classyNav();
-}
-
-// nav scroll   
-var myoffset = $('#dtr-header-global').height();
-$('.navbar a[href^="#"]').click(function () {
-    event.preventDefault();
-    $('html, body').animate({
-        scrollTop: $($(this).attr('href')).offset().top - myoffset
-    }, "slow", "easeInSine");
-});
-
-//stickyatTop
-$(window).on("scroll", function () {
-    if ($(this).scrollTop() > 670) {
-        $(".scrollheader").addClass("is-sticky");
-        $('.scrollheader').css('position', 'fixed');
-    } else {
-        $(".scrollheader").removeClass("is-sticky");
-        $(".scrollheader").css('position', 'relative');
+    if ($.fn.classyNav) {
+        $('#roamingnav').classyNav();
     }
-});
+
+    // nav scroll   
+    var myoffset = $('#dtr-header-global').height();
+    $('.navbar a[href^="#"]').click(function () {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top - myoffset
+        }, "slow", "easeInSine");
+    });
+
+    //stickyatTop
+    $(window).on("scroll", function () {
+        if ($(this).scrollTop() > 670) {
+            $(".scrollheader").addClass("is-sticky");
+            $('.scrollheader').css('position', 'fixed');
+        } else {
+            $(".scrollheader").removeClass("is-sticky");
+            $(".scrollheader").css('position', 'relative');
+        }
+    });
 
     $(document).ready(function() {
       $('.infiniteslider').owlCarousel({
@@ -86,12 +86,89 @@ $(window).on("scroll", function () {
       })
     });
 
-    //LightBox / Fancybox
-    $('.lightbox-image').fancybox({
-        openEffect: 'fade',
-        closeEffect: 'fade',
-        helpers: {
-            media: {}
+    $('.to-donate').owlCarousel({
+        loop: false,
+        nav: false,
+        dots: false,
+        autoplayHoverPause: true,
+        autoplay: false,
+        margin: 30,
+        responsive: {
+            0: {
+                items: 1,
+                nav: false,
+                dots: true,
+            },
+            576: {
+                items: 2,
+                nav: false,
+                dots: true,
+            },
+            768: {
+                items: 2,
+                nav: false,
+                dots: true,
+            },
+            992: {
+                items: 3,
+                nav: true,
+                dots: true,
+            },
+            1200: {
+                items: 3,
+                nav: true,
+                dots: true,
+            }
+        }
+    });
+
+    $('.partners-slider').owlCarousel({
+        loop: true,
+        nav: false,
+        dots: false,
+        autoplayHoverPause: true,
+        autoplay: true,
+        margin: 30,
+        responsive: {
+            0: {
+                items: 2,
+                dots: true,
+            },
+            576: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1200: {
+                items: 5,
+            }
+        }
+    });
+
+    $('.donate').owlCarousel({
+        loop: false,
+        nav: false,
+        mouseDrag: false,
+        dots: false,
+        autoplayHoverPause: true,
+        autoplay: true,
+        margin: 30,
+        responsive: {
+            0: {
+                items: 1,
+                loop: true,
+                dots: true,
+            },
+            576: {
+                items: 2,
+            },
+            1200: {
+                items: 2,
+            }
         }
     });
 
